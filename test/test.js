@@ -18,4 +18,23 @@ describe("vending machine", () => {
     });
     expect(machine.balance).to.equal(500); // Use an ES6 getter
   });
+
+  it("should select a row and column", () => {
+    // Setup
+    const machine = new VendingMachine();
+
+    machine.pressButton("A", 1);
+
+    expect(machine.selectedRow).to.equal("A");
+    expect(machine.selectedColumn).to.equal(1);
+  });
+
+  it("should check inventory", () => {
+    // Setup
+    const machine = new VendingMachine();
+
+    machine.checkInventory("A", 1);
+
+    expect(machine.selectedItem).to.equal("juice");
+  });
 });
